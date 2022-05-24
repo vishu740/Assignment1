@@ -7,14 +7,48 @@ import '../App.css';
 function UseEffectAPI() {
   const [nam , setNum]= useState();
   const [nam1 , setNum1]= useState();
+  const [nam2 , setNum2]= useState();
+  const [nam3 , setNum3]= useState();
+  const [nam4 , setNum4]= useState();
+  const [nam5 , setNum5]= useState();
+  const [nam6 , setNum6]= useState();
+  const [nam7 , setNum7]= useState();
+
+
+  const [img , setImg]= useState();
+  const [img1 , setImg1]= useState();
+  const [img2 , setImg2]= useState();
+  const [img3 , setImg3]= useState();
+  const [img4, setImg4]= useState();
+  const [img5, setImg5]= useState();
+  const [img6, setImg6]= useState();
+  const [img7, setImg7]= useState();
 
   useEffect(()=>{
     // alert("hi")
     async function getData(){
       const res=await axios.get(`https://api.tjori.com/api/v7filters/na/women-all-products/?f_page=1&format=json`)
-      setNum(res.data.data.products[0].name)
-      setNum1(res.data.data.products[1].name)
+      setNum(res.data.data.products[1].name)
+      // console.log(res.data.data.products[1])
+      setNum1(res.data.data.products[3].name)
+      setNum2(res.data.data.products[5].name)
+      setNum3(res.data.data.products[7].name)
+      setNum4(res.data.data.products[9].name)
+      setNum5(res.data.data.products[8].name)
+      setNum6(res.data.data.products[2].name)
+      setNum7(res.data.data.products[6].name)
+      
 
+      // console.log(res.data.data.products)
+      setImg(res.data.data.products[1].image[1])
+      setImg1(res.data.data.products[3].image[1])
+      setImg2(res.data.data.products[5].image[1])
+      setImg3(res.data.data.products[7].image[1])
+      setImg4(res.data.data.products[9].image[1])
+      setImg5(res.data.data.products[8].image[1])
+      setImg6(res.data.data.products[2].image[1])
+      setImg7(res.data.data.products[6].image[1])
+      console.log(res.data.data)
     }
     getData();
   })
@@ -24,11 +58,12 @@ function UseEffectAPI() {
 
     return (
   <div className="bg-dark auto-container">
-        <div className="topheader">
-          <div className="logoname">
-              <p >vishal kumar</p>
+    <div className="d-none d-lg-block">
+        <div className="topheader  ">
+          <div className="logoname ml-3 ">
+              <p className="" >Hidden brand</p>
           </div>
-          <div className="searchicon">
+          <div className="searchicon pt-2">
           {/* <p >vishal kumar</p> */}
 <ul>
     <li><i className="fa fa-search" aria-hidden="true" style={{color:"white"}}></i></li>
@@ -38,26 +73,29 @@ function UseEffectAPI() {
           </div>
   
         </div>
+        </div>
         <nav className="navbar navbar-expand-lg navbar-light backcolor">
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
+        <a className="navbar-brand medialogo d-lg-none text-white " style={{color:"black"}} href="#">Hidden brand</a>
+  <button className="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span className="navbar-toggler-icon "></span>
+
   </button>
   <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-    {/* <a className="navbar-brand" href="#">Hidden brand</a> */}
-    <ul className="navbar-nav m-auto mt-2 mt-lg-0 text-white">
+    <a className="navbar-brand d-none " style={{color:"black"}} href="#">Hidden brand</a>
+    <ul className="navbar-nav m-auto mt-2 mt-lg-0 ">
       <li className="nav-item active">
-        <a className="nav-link text-white" href="#">Bags</a>      </li>
+        <a className="nav-link " href="#">Bags</a>      </li>
       <li className="nav-item">
-        <a className="nav-link text-white" href="#">Travel</a>
+        <a className="nav-link text-white " href="#">Travel</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link text-white" href="#">Accesories</a>
+        <a className="nav-link text-white " href="#">Accesories</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link text-white" href="#">Gifting</a>
+        <a className="nav-link text-white " href="#">Gifting</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link text-white" href="#">Jewelery</a>
+        <a className="nav-link text-white " href="#">Jewelery</a>
       </li>
     </ul>
    
@@ -80,12 +118,14 @@ function UseEffectAPI() {
     </div>
 </section>
 <section className="cardsection backcolor pt-3  auto-container">
-  <div className="container">
-  <div className="row ">
-    <div className="col-lg- mb-3">
+  {/* <div className="container"> */}
+  <div className="row m-0 ">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg">
-  <img className="card-img-top w-100" src="18.png" alt="Card image cap"  />
-  <div className="card-body">
+      <div className="blackimg">
+  <img className="card-img-top " src={img} alt="Card image cap"  />
+  </div>
+  <div className="card-body blackimg">
     <p className="card-text text-white">{nam}</p>
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -96,12 +136,14 @@ function UseEffectAPI() {
   </div>
 </div>
     </div>
-    <div className="col-lg- mb-3">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg">
-  <img className="card-img-top w-100" src="17.png" alt="Card image cap"  />
+    <div className="blackimg">
+  <img className="card-img-top" src={img1} alt="Card image cap"  />
+  </div>
   <div className="card-body">
   
-    <p className="card-text text-white">{nam1}</p>
+    <p className="card-text text-white blackimg">{nam1}</p>
   
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -112,12 +154,14 @@ function UseEffectAPI() {
   </div>
 </div>
     </div>
-    <div className="col-lg- mb-3">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg">
-  <img className="card-img-top w-100" src="16.png" alt="Card image cap"  />
-  <div className="card-body">
+    <div className="blackimg">
+  <img className="card-img-top" src={img2} alt="Card image cap"  />
+  </div>
+  <div className="card-body blackimg">
   
-    <p className="card-text text-white">The Brown Metro Movers</p>
+    <p className="card-text text-white ">{nam2}</p>
   
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -128,12 +172,14 @@ function UseEffectAPI() {
   </div>
 </div>
     </div>
-    <div className="col-lg- mb-3">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg ">
-  <img className="card-img-top w-100" src="15.png" alt="Card image cap"  />
-  <div className="card-body">
+    <div className="blackimg">
+  <img className="card-img-top" src={img3} alt="Card image cap"  />
+  </div>
+  <div className="card-body blackimg">
   
-    <p className="card-text text-white">The Brown Metro Movers</p>
+    <p className="card-text text-white">{nam3}</p>
   
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -144,12 +190,14 @@ function UseEffectAPI() {
   </div>
 </div>
     </div>
-    <div className="col-lg- mb-3">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg">
-  <img className="card-img-top w-100" src="14.png" alt="Card image cap"  />
-  <div className="card-body">
+    <div className="blackimg">
+  <img className="card-img-top" src={img4} alt="Card image cap"  />
+  </div>
+  <div className="card-body blackimg">
   
-    <p className="card-text text-white">The Brown Metro Movers</p>
+    <p className="card-text text-white">{nam4}</p>
   
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -160,12 +208,14 @@ function UseEffectAPI() {
   </div>
 </div>
     </div>
-    <div className="col-lg- mb-3">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg">
-  <img className="card-img-top w-100" src="13.png" alt="Card image cap"  />
-  <div className="card-body">
+      <div className="blackimg">
+  <img className="card-img-top" src={img5} alt="Card image cap"  />
+  </div>
+  <div className="card-body blackimg">
   
-    <p className="card-text text-white">The Brown Metro Movers</p>
+    <p className="card-text text-white">{nam5}</p>
   
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -176,12 +226,14 @@ function UseEffectAPI() {
   </div>
 </div>
     </div>
-    <div className="col-lg- mb-3">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg">
-  <img className="card-img-top w-100" src="12.png" alt="Card image cap"  />
-  <div className="card-body">
+      <div className="blackimg">
+      <img className="card-img-top" src={img6} alt="Card image cap"  />
+      </div>
+  <div className="card-body blackimg">
   
-    <p className="card-text text-white">The Brown Metro Movers</p>
+    <p className="card-text text-white">{nam6}</p>
   
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -192,12 +244,15 @@ function UseEffectAPI() {
   </div>
 </div>
     </div>
-    <div className="col-lg- mb-3">
+    <div className="col-lg-3 col-md-6 mb-3">
     <div className="card bggg">
-  <img className="card-img-top w-100" src="11.png" alt="Card image cap"  />
-  <div className="card-body">
+
+    <div className="blackimg">
+  <img className="card-img-top" src={img7} alt="Card image cap"  />
+  </div>
+  <div className="card-body blackimg">
   
-    <p className="card-text text-white">The Brown Metro Movers</p>
+    <p className="card-text text-white">{nam7}</p>
   
   </div>
   <div className="d-flex justify-content-between paddinglr">
@@ -209,7 +264,7 @@ function UseEffectAPI() {
 </div>
     </div>
   </div>
-</div>
+{/* </div> */}
 </section>
     </div>
     );

@@ -69,6 +69,22 @@ align-items: center;
 .paddinglr{
  padding: 7px 15px;
 }
-.card{
+/* .card{
   width:90%;
+} */
+/* .blackimg{
+  max-width: 320px;
+  width:100%;
 }
+.blackimg img{
+  max-height: 400px;
+  height: 100%;
+
+} */
+/* @media screen and (max-width:991px){
+  
+    .navbar-nav li a{
+color:black;
+    }
+  } */
+
